@@ -1,5 +1,4 @@
-filesList = [r"C:\Users\ellio\Downloads\Northernlion Chat Sort\[2-5-26].txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\-2.txt",
+filesList = [r"C:\Users\ellio\Downloads\Northernlion Chat Sort\-2.txt",
 r"C:\Users\ellio\Downloads\Northernlion Chat Sort\+2.txt",
 r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Cereal.txt",
 r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Cinema.txt",
