@@ -1,13 +1,4 @@
-filesList = [r"C:\Users\ellio\Downloads\Northernlion Chat Sort\[2-5-26].txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\-2.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\+2.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Cereal.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Cinema.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Classic.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Clueless.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Copium.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\ICANT.txt",
-r"C:\Users\ellio\Downloads\Northernlion Chat Sort\Life.txt"]
+import os
 
 def breakDown(stamp):
 	stamp = stamp[1:8]
@@ -17,12 +8,23 @@ def breakDown(stamp):
 
 def readAndSort(filename, searchValue):
 	listNums = []
-	for file in filesList:
+	for file in fileNames:
 		try:
 			with open(filename, 'r', encoding='utf-8') as file:
 				for line in file:
 					if searchValue in line:
 						word = line.strip()
 						num = breakDown(word)
+						listNums.append(num)
 		except Exception as e:
 			print(f"error: {e}") 
+	return listNums
+
+fileNames = os.listdir()
+
+print(fileNames)
+for file in fileNames:
+	if not file[len(file)-1] == 'x':
+		fileNames.pop(fileNames[file])
+print(fileNames)
+# print(readAndSort(filesList[0], '+2'))
