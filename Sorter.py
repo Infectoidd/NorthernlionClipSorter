@@ -8,23 +8,35 @@ def breakDown(stamp):
 
 def readAndSort(filename, searchValue):
 	listNums = []
-	for file in fileNames:
-		try:
-			with open(filename, 'r', encoding='utf-8') as file:
-				for line in file:
-					if searchValue in line:
-						word = line.strip()
-						num = breakDown(word)
-						listNums.append(num)
-		except Exception as e:
-			print(f"error: {e}") 
+	try:
+		with open(filename, 'r', encoding='utf-8') as file:
+			for line in file:
+				if searchValue in line:
+					word = line.strip()
+					num = breakDown(word)
+					listNums.append(num)
+	except Exception as e:
+		print(f"error: {e}") 
 	return listNums
 
 fileNames = os.listdir()
 
-print(fileNames)
+tempList = []
 for file in fileNames:
-	if not file[len(file)-1] == 'x':
-		fileNames.pop(fileNames[file])
-print(fileNames)
-# print(readAndSort(filesList[0], '+2'))
+	if file[len(file)-2] == 'x':
+		tempList.append(file)
+fileNames = tempList
+master = fileNames[len(fileNames)-1]
+fileNames.pop(len(fileNames)-1)
+
+for file in fileNames:
+	with open(file, 'w', encoding='utf-8'):
+		pass
+
+for file in fileNames:
+	search = str(file)
+	search = search[0:int(len(file)-4)]
+	tempList = readAndSort(master, search)
+	with open(file, 'w', encoding='utf-8') as file:
+		for time in tempList:
+			file.write(f'{time}\n')	
