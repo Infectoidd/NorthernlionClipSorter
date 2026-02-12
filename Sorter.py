@@ -3,7 +3,8 @@ import os
 def breakDown(stamp):
 	stamp = stamp[1:8]
 	stamp = stamp.replace(':','')
-	stamp = int(stamp[0])*3600 + int(stamp[1:2])*60 + int(stamp[3:4])
+	print(stamp)
+	stamp = int(stamp[0])*3600 + int(stamp[1:3])*60 + int(stamp[3:5])
 	return str(stamp)
 
 def readAndSort(filename, searchValue):
@@ -40,3 +41,4 @@ for file in fileNames:
 	with open(file, 'w', encoding='utf-8') as file:
 		for time in tempList:
 			file.write(f'{time}\n')	
+		print(file)
