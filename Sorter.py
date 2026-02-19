@@ -27,8 +27,10 @@ for file in fileNames:
 	if file[len(file)-2] == 'x':
 		tempList.append(file)
 fileNames = tempList
-master = fileNames[len(fileNames)-1]
-fileNames.pop(len(fileNames)-1)
+
+master = input('Enter the master file name: ')
+
+fileNames.remove(master)
 
 for file in fileNames:
 	with open(file, 'w', encoding='utf-8'):
